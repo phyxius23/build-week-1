@@ -114,46 +114,46 @@ window.onload = function () {
    // Quando l'utente seleziona una risposta, passa alla domanda successiva dell'array e sostituisci quella precedentemente visualizzata con quella corrente,
    // salvando le risposte dell'utente in una variabile
 
-   let divQuestion = document.querySelector('.question');
+   let divQuestion = document.querySelector('.question');               //seleziono elemento div.question
       
-   let title = document.createElement('h1');
-   let contentTitle = document.createTextNode(questions[9].question);
-   title.classList.add('bench-title');
+   let title = document.createElement('p');                             //creo elemento h1
+   let contentTitle = document.createTextNode(questions[9].question);   //creo textNode con contenuto
+   title.classList.add('title');                                        //aggiungo classe ad h1
    
-   let divAnswers = document.createElement('div');
-   divAnswers.classList.add('answers');
+   let divAnswers = document.createElement('div');                      //creo elemento div
+   divAnswers.classList.add('answers');                                 //aggiungo classe a div
 
-   title.appendChild(contentTitle);
+   title.appendChild(contentTitle);                                     //contentTitle => title
+   divQuestion.appendChild(title);                                      //title => divQuestion
+   divQuestion.appendChild(divAnswers);                                 //divAnswers => divQuestion
+
    
-   divQuestion.appendChild(title);
-   divQuestion.appendChild(divAnswers);
+   for(answer of questions[9].answers){                                 //ciclo l'array answers
+      let divAnswer = document.createElement('div');                    //creo elemento div
+      let input = document.createElement('input');                      //creo elemento input
+      let label = document.createElement('label');                      //creo elemento label
 
-   
-   for(answer of questions[9].answers){
-      let divAnswer = document.createElement('div');
-      let input = document.createElement('input');
-      let label = document.createElement('label');
+      let contentLabel = document.createTextNode(answer);               //creo textNode con contenuto
 
-      let contentLabel = document.createTextNode(answer);
+      divAnswer.classList.add('answer');                                //aggiungo classe a label
 
-      divAnswer.classList.add('answer');
+      input.setAttribute('type','radio');                               //imposto input type=radio
+      input.setAttribute('name','answer');                              //imposto input name=answer
+      input.setAttribute('id', answer.toLowerCase());                   //imposto attributo id di input
 
-      input.setAttribute('type','radio');
-      input.setAttribute('id', answer.toLowerCase());
+      label.setAttribute('for', answer.toLowerCase());                  //imposto attributo for di input
 
-      label.setAttribute('for', answer.toLowerCase());
-
-      label.appendChild(contentLabel);
-      divAnswer.appendChild(input);
-      divAnswer.appendChild(label);
-      divAnswers.appendChild(divAnswer);
+      label.appendChild(contentLabel);                                  //contentLabel => label
+      divAnswer.appendChild(input);                                     //input => divAnswer
+      divAnswer.appendChild(label);                                     //label => divAnswer
+      divAnswers.appendChild(divAnswer);                                //divAnswer => divAnswers
    }
 
    let n = 1;
-   let p = document.createElement('p');
-   let contentP = document.createTextNode(`Question ${n}<span>/10</span>`);
+   let p = document.createElement('p');                                 //creo elemento p
+   
+   p.innerHTML = `Question ${n}<span>/10</span>`;                       //
    p.classList.add('bench-footer');
-   p.appendChild(contentP);
    divQuestion.appendChild(p);
    
 };
