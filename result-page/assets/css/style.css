@@ -32,6 +32,7 @@ body{
     display: flex;
     font-size: 30px;
     justify-content: space-around;
+    align-items: baseline;
     margin-bottom: 50px;
 }
 
@@ -56,10 +57,35 @@ body{
 }
 
 .bordo{
-    border: 2px solid white;
-    border-radius: 100%;   
-    align-items: baseline;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border: 30px;
+    border: 30px solid #00ffff;
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
 }
+
+
+.sinistra *{
+    margin: 0;
+}
+
+.sinistra {
+    line-height: 50px;
+    margin-right: 0;
+}
+
+.destra *{
+    text-align: end;
+    margin: 0;
+}
+
+.destra {
+    line-height: 50px;
+}
+
 
 .frase{
     font-size: large;
