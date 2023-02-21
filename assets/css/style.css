@@ -6,7 +6,7 @@ body{
     font-family: 'Outfit', sans-serif;
 }
 
-#corpo{
+.container{
     margin-left: 150px;
     margin-right: 150px;
     margin-top: 50px;
@@ -18,7 +18,7 @@ body{
     width: 200px;
 }
 
-img{
+.logo{
     width: 100%;
     height: 100%;
 }
@@ -38,11 +38,11 @@ img{
     font-size: 2em;
 }
 
-.titolo{
+.title{
     font-size: 60px;
 }
 
-#pulsante{
+.pulsante{
     background-color: #00ffff;
     display: inline-block;
     padding-left: 30px;
