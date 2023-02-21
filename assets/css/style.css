@@ -24,7 +24,7 @@ body{
 
 .main{
     display: inline-block;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     align-items: flex-start;
 }
 
@@ -46,7 +46,15 @@ p{
 }
 
 .comment{
-    opacity: 0,0;
+    display: flex;
+    background: transparent;
+    border: none;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+
+hr{
+    border-color: #d20094;
 }
 
 .footer{
