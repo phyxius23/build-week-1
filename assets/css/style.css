@@ -26,18 +26,18 @@ main{
     margin-bottom: 150px;
 }
 
-footer{
+.footer{
     display: flex;
     justify-content: space-between;
 }
 
-h2{
+.sottotitolo{
     color: #D20094;
     margin-bottom: 0;
     font-size: 2em;
 }
 
-h1{
+.titolo{
     font-size: 60px;
 }
 
