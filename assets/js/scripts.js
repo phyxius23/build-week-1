@@ -100,7 +100,7 @@ const questions = [
 ];
 
 /** ------- test page ------- */
-/* ---------------------------- */
+/* ---------------------- ------ */
 
 /** ------- central content ------- */
 let injectionDiv = document.querySelector('.container-js');
@@ -157,7 +157,6 @@ function randomAnswers(numElements){
 /**
  * funzione con la quale creo il button e mostro una slide diversa ad ogni click
  */
-
 function showSlide(arrayWrapper){
 
    let btnNextSlide = document.createElement('button');
@@ -172,14 +171,20 @@ function showSlide(arrayWrapper){
 
       index++;
 
-      if(index > 0){
-      
+      if(index < arrayWrapper.length){
+         
+         console.log(index);
+                  
          for(element of arrayWrapper){
-      
+            
             element.classList.remove('d-block');
          }
-
+         
          arrayWrapper[index].classList.add('d-block');
+      }
+      if(index == arrayWrapper.length-1){
+
+         btnNextSlide.innerText = `Mostra il risultato`;
       }
    })
 
@@ -200,8 +205,6 @@ function startQuiz(arrayRandom){
    
    for(let element of arrayRandom){
 
-      console.dir(element);
-      
       let wrapperDiv = document.createElement('div'); //div contenente tutta la slide
       let title = document.createElement("p");
       let divQuestions = document.createElement('div'); //div contenente tutte le risposte
@@ -255,71 +258,19 @@ function startQuiz(arrayRandom){
       wrapperDiv.appendChild(divQuestions);
 
       wrapperDiv.appendChild(p);
-      console.dir(wrapperDiv);
       
       arrayWrapper.push(wrapperDiv);
-      console.dir(arrayWrapper);
 
       injectionDiv.appendChild(wrapperDiv);
-      
    }
 
    showSlide(arrayWrapper);
 }
 startQuiz(randomQuestions(7));
 
-
 /**
- * CODICE FUNZIONANTE */
-
-// title
-// let title = document.createElement("p");
-
-// title.classList.add('title','title-test');
-// title.innerHTML = questions[9].question;
-
-// injectionDiv.append(title);
-
-// // questions (flexbox)
-// let divQuestions = document.createElement('div');
-// divQuestions.classList.add('questions');
-
-// // ciclo l'array answers
-// for(answer of questions[9].answers){
-
-//    let divQuestion = document.createElement('div');
-//    let input = document.createElement('input');
-//    let label = document.createElement('label');
-//    let contentLabel = document.createTextNode(answer);
-
-//    divQuestion.classList.add('question');
-
-//    //imposto le proprietà di input
-//    input.setAttribute('type','radio');
-//    input.setAttribute('name','answer');
-//    input.setAttribute('id', answer.toLowerCase());
-
-//    //imposto la proprietà for di label per collegarla ad input
-//    label.setAttribute('for', answer.toLowerCase());
-
-//    label.appendChild(contentLabel);
-//    divQuestion.appendChild(input);
-//    divQuestion.appendChild(label);
-//    divQuestions.appendChild(divQuestion);
-// }
-
-// injectionDiv.append(divQuestions);
-
-// let n = 1; //il valore di n lo prendo dall'indice +1 della
-// let p = document.createElement('p');
-
-// p.innerHTML = `Question ${n}<span>/10</span>`;
-// p.classList.add('footer-test');
-
-// injectionDiv.appendChild(p);
-
-/** ------------------------------------------------------------------ */
-
+ * provare ad implementare le nuove funzionalità mostrate da Michele questa sera
+ */
 
 /**
  * TIMER
