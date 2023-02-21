@@ -9,10 +9,11 @@ body{
 #corpo{
     margin-left: 150px;
     margin-right: 150px;
+    margin-top: 50px;
 }
 
 
-header{
+.header{
     margin-bottom: 100px;
     width: 200px;
 }
@@ -22,7 +23,7 @@ img{
     height: 100%;
 }
 
-main{
+.main{
     margin-bottom: 150px;
 }
 
