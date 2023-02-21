@@ -105,24 +105,15 @@ const questions = [
 /** ------- central content ------- */
 let injectionDiv = document.querySelector('.container-js');
 
-let requests = randomQuestions(7);
-
-let results = {
-   correct: 0,
-   incorrect: 0,
-   total: requests.length
-}
-
-
 /**
  * funzione che sceglie random le domande dall'array questions fornito
  */
-function randomQuestions(elements){
+function randomQuestions(numElements){
 
    let chosenQuestions = [];
    let usedQuestions = [];
 
-   while(chosenQuestions.length < elements){
+   while(chosenQuestions.length < numElements){
 
       let randomIndex = Math.floor(Math.random() * questions.length);
 
@@ -143,9 +134,9 @@ function randomAnswers(numElements){
 
    let chosenAnswers = [];
    let usedAnswers = [];
-   let allAnswers = numElements.incorrect_answers;
 
    //array contenente tutte le possibili risposte
+   let allAnswers = numElements.incorrect_answers;
    allAnswers.push(numElements.correct_answer);
    
    // ciclo fino a quando non ho creato una variabile contenente le risposte disposte random
