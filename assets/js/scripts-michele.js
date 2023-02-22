@@ -197,8 +197,6 @@ next.addEventListener('click',function(){
       next.innerText = 'Passa ai risultati';
       return //valutare se il ramo false è necessario
    }
-
-   console.dir(next)
 })
 
 
@@ -255,18 +253,20 @@ function newQuestion(answerObj){
 
    questionCounter.innerHTML = `Question ${indice+1}<span>/${requests.length}</span>`;
 
-   console.dir(html)
+   // console.dir(html)
 
    html.append(questionCounter);
    target.append(html);
 
    if(indice >= 1){
       let risposta = "";
-      // let risposte = document.querySelectorAll('.answer input');
+
       console.log(html.querySelectorAll('.answers input'));
-      html.querySelectorAll('.answers input:checked').addEventListener('click', function(){
-         console.log("test");
-      })
+      console.log(answerObj.correct_answer);
+
+      // html.querySelectorAll('.answers input:checked').addEventListener('click', function(){
+      //    console.log("test");
+      // })
 
       // for(let answer of risposte){
       //    answer.addEventListener('click', function(){
