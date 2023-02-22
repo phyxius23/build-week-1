@@ -218,10 +218,6 @@ function newQuestion(answerObj){
    //       console.dir("test");
    //    }
    // }
-
-   // ciao Michele, mi sono impantanato. Devo selezionare 
-
-   
    
    let target = document.querySelector('#target');
    let html = document.querySelector('#template .slide').cloneNode(true);
