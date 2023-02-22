@@ -42,65 +42,43 @@
          font-size: 4rem;
          margin-bottom: 1rem;
       }
-      .sottotitolo{
+      .subtitle{
          font-size: 2em;
       }
-      .dati{
+      .results{
          display: flex;
          font-size: 30px;
          justify-content: space-around;
          align-items: center;
          margin-bottom: 50px;
       }
-      .sinistra{
+      .results__left{
          text-align: left;
       }
-      .destra{
+      .results__right{
          text-align: right;
          opacity: 0.8;
       }
-      .sinistra, 
-      .destra{
+      .results__left, 
+      .results__right{
          width: 20%;
       }
-      .bordo{
-         width: 100%;
-      }
-      .esito,
-      .correct-percent,
-      .incorrect-percent{
+      .results__title,
+      .results__percent{
          font-size: 3rem;
       }
-      .correct-percent,
-      .incorrect-percent{
+      .results__percent{
          font-weight: bold;
       }
-      .correct-questions,
-      .incorrect-questions{
+      .results__questions{
          font-size: 1rem;
          font-weight: 300;
       }
-      .sinistra p,
-      .destra p{
+      .results__left p,
+      .results__right p{
          margin-bottom: 5px;
       }
-      .p-text{
-         font-size: 1.2rem;
-         text-align: center;
-         line-height: 1;
-      }
-      .p-text b {
-         font-weight: 700;
-      }
-      .p-text .bold-color{
-         color: #00ffff;
-      }
-      .p-text p{
-         font-size: 13px;
-         font-weight: 300;
-         margin-top: 1.2rem;
-      }
-      .bordo{ 
+      .results__center{ 
          display: flex;
          align-items: center;
          justify-content: center;
@@ -110,7 +88,23 @@
          height: 200px;
          padding: 30px;
       }
-      .rate{
+      .results__text{
+         font-size: 1.2rem;
+         text-align: center;
+         line-height: 1;
+      }
+      .results__text b {
+         font-weight: 700;
+      }
+      .results__text .bold-color{
+         color: #00ffff;
+      }
+      .results__text p{
+         font-size: 13px;
+         font-weight: 300;
+         margin-top: 1.2rem;
+      }
+      .btn-rate{
          text-decoration: none;
          background-color: transparent;
          color: #fff;
@@ -118,10 +112,8 @@
          font-size: 20px;
          border: 2px solid #fff;
          font-weight: 700;
-      }
-      .pulsante{
          display: block;
-         text-align: center;
+         margin: 0 auto;
       }
    </style>
 </head>
@@ -135,38 +127,36 @@
       </div> <!-- .header -->
 
       <div class="main">
+
          <div class="title-wrapper">
             <p class="title">Results</p>
             
-            <p class="sottotitolo">The summary of your aswers:</p>
+            <p class="subtitle">The summary of your aswers:</p>
          </div> <!-- .title-wrapper -->
 
-      <div class="dati">
-         <div class="sinistra">
-            <p class="esito">Correct</p>
-            <p class="correct-percent"></p>
-            <p class="correct-questions"></p>
-         </div> <!-- .sinistra -->
-         
-         <div class="bordo">
-            <p class="p-text"></p>
-         </div> <!-- .bordo -->
+         <div class="results">
+            <div class="results__left">
+               <p class="results__title">Correct</p>
+               <p class="results__percent"></p>
+               <p class="results__questions"></p>
+            </div> <!-- .results__left -->
+            
+            <div class="results__center">
+               <p class="results__text"></p> <!-- results__text -->
+            </div> <!-- .bordo -->
 
-         <div class="destra">
-            <p class="esito">Wrong</p>
-            <p class="incorrect-percent"></p>
-            <p class="incorrect-questions"></p>
-         </div>
-      </div>
+            <div class="results__right">
+               <p class="results__title">Wrong</p>
+               <p class="results__percent"></p>
+               <p class="results__questions"></p>
+            </div> <!-- .results__right -->
+         </div> <!-- .results -->
 
-      <div class="pulsante">
-         <button class="rate">RATE US</button>
-      </div>
+         <button class="btn-rate">RATE US</button>
 
-   </div> <!-- .main -->
+      </div> <!-- .main -->
 
-   </div>
-
+   </div> <!-- .container -->
 
    <script>
 
@@ -175,15 +165,15 @@
 
       function cerchiofrase() {
          
-         let frasehtml = document.querySelector('.p-text');
+         let frasehtml = document.querySelector('.results__text');
          let frase1 = `<b>Congratulations!</b><br><b class="bold-color">You passed the exam</b><p>We'll send you the certificate<br>in few minutes<br>check your email (including<br>promotions / spam folder)</p>`;
          let frase2 = "non hai superato l'esame";
          let percentuale = Math.floor((100/numberQuestions) * answersCorrect.length);
 
-         document.querySelector('.correct-percent').innerText = percentuale + "%";
-         document.querySelector('.incorrect-percent').innerText = 100 - percentuale + "%";
-         document.querySelector('.correct-questions').innerText = `${answersCorrect.length}/${numberQuestions} questions`;
-         document.querySelector('.incorrect-questions').innerText = `${numberQuestions - answersCorrect.length}/${numberQuestions} questions`;
+         document.querySelector('.results__left .results__percent').innerText = percentuale + "%";
+         document.querySelector('.results__right .results__percent').innerText = 100 - percentuale + "%";
+         document.querySelector('.results__left .results__questions').innerText = `${answersCorrect.length}/${numberQuestions} questions`;
+         document.querySelector('.results__right .results__questions').innerText = `${numberQuestions - answersCorrect.length}/${numberQuestions} questions`;
 
          if (percentuale >= 60) {
 
