@@ -38,6 +38,10 @@ body {
 }
 .star{
     margin: 4px;
+    /*
+    stroke: var(--black);
+    fill: var(--green);
+    */
 }
 .comment {
     margin-top: 30px;
