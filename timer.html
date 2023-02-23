@@ -7,6 +7,65 @@
     <title>Document</title>
     
     <style>
+        .cirular{
+            height: 100%;
+            width: 100px;
+            background: red;
+            position: relative;
+            transform: scale(2);
+        }
+        .circular .inner{
+            
+            position: absolute;
+            z-index: 6;
+            top: 50%;
+            left: 50%;
+            height: 80px;
+            width: 80px;
+            margin: -40px 0 0 -40px;
+            background: #dde6f0;
+            border-radius: 100%;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); 
+        }
+        .cirular .bar{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            -webkit-border-radius: 100%;
+            clip: rect(0px, 100px, 100px, 50px);
+        }
+        .circle .bar .progress{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            -webkit-border-radius: 100%;
+            clip: rect(0px, 50px, 100px, 0px);
+            background: #4158d0;
+        }
+        .circle .left .progress{
+            z-index: 1;
+    animation: left 4s linear both;
+}
+@keyframes left{
+    100%{
+        transform: rotate(180deg);
+    }
+}
+.circle .right{
+    z-index: 3;
+    transform: rotate(180deg);
+}
+.circle .right .progress{
+    animation: right 4s linear both;
+    animation-delay: 4s;
+}
+@keyframes right{
+    100%{
+        transform: rotate(180deg);
+    }
+}
+/*
+        
        .cerchio-timer{
     display: flex;
     flex-wrap: wrap;
@@ -21,15 +80,35 @@
     height: 100px;
     padding: 20px;
 }
+
+
+.cerchio-timer .right{
+    z-index: 3;
+    transform: rotate(180deg);
+}*/
     </style>
 </head>
 <body>
+    <div class="circular">
+        <div class="inner"></div>
+        
+        <div class="circle">
+            <div class="bar left">
+                <div class="progress"></div>
+            </div>
+            <div class="bar right">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+    <!--
     <div class="cerchio-timer">
         <p id="countdown"></p>
      </div>
-     
-    <script src="assets/js/timer.js">
+    
+<script src="assets/js/timer.js">
        
     </script>
+    -->
 </body>
 </html>
