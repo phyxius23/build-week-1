@@ -1,63 +1,116 @@
-body{
-    background-image: url(../img/bg.jpg);
+body {
+    background: url(assets/img/bg.jpg) no-repeat center center;
     background-size: cover;
-    background-repeat: no-repeat;
     color: white;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
-.container{
+.container {
     margin-left: 150px;
     margin-right: 150px;
     margin-top: 50px;
 }
 
-
-.header{
-    margin-bottom: 100px;
-    width: 200px;
-}
-
-.logo{
+.header {
+    margin-bottom: 35px;
     width: 100%;
-    height: 100%;
 }
 
-.main{
+.logo {
+    width: 20%;
+    height: 20%;
+}
+
+/* css nuovo */
+.main {
     margin-bottom: 150px;
 }
 
-.footer{
+.footer {
     display: flex;
     justify-content: space-between;
 }
 
-.sottotitolo{
-    color: #D20094;
-    margin-bottom: 0;
-    font-size: 2em;
+.title,
+.subtitle {
+    font-family: 'Outfit', sans-serif;
 }
 
-.title{
+.title {
     font-size: 60px;
+    width: 35%;
+    margin-bottom: 2rem;
 }
 
-.pulsante{
-    background-color: #00ffff;
-    display: inline-block;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    text-decoration: none;
-    color: black;
-    box-shadow: 0px 0px 20px 5px #00FFFF;
+.title b {
     font-weight: bold;
-    font-size: larger;
 }
 
+.subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: #D20094;
+    margin-bottom: 1rem;
+}
 
+.main__text {
+    width: 60%;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+}
 
+.main__list {
+    margin-left: 1.5rem;
+}
 
+.main__list li {
+    margin-bottom: 0.5rem;
+}
 
+#checkbox {
+    border: 1px solid #fff;
+    background-color: transparent;
+}
 
+.btn-start {
+    display: inline-block;
+    background-color: #00ffff;
+    color: black;
+    border: none;
+    padding: 1rem 3rem;
+    box-shadow: 0px 0px 20px 5px #00FFFF;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* personalizzazione checkbox */
+/* input[type='checkbox'] {
+   position: absolute;
+   clip: rect(1px, 1px, 1px, 1px);
+} */
+/* .checkbox-wrapper{
+   position: relative;
+}
+input[type="checkbox"]{
+   position: absolute;
+   clip: rect(1px, 1px, 1px, 1px);
+}
+input[type="checkbox"] + span{
+   content: " ";
+   background-color: transparent;
+   border: 2px solid #fff;
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 12px;
+   height: 12px;
+}
+input[type="checkbox"]:checked + span::after{
+   background-color: red;
+   border: 2px solid green;
+}
+label {
+   padding-left: 30px;
+} */
