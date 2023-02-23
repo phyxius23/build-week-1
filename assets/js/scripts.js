@@ -211,21 +211,20 @@ let next = document.querySelector('.btn-next');
 
 next.addEventListener('click',function(){
 
-   if(indice < requests.length){
+   if(indice < requests.length && indice != requests.length){
       newQuestion(requests[indice]);
-      indice++;
    }
    if(indice == requests.length){
       next.innerText = 'Passa ai risultati';
 
-      next.addEventListener('click',function(){
-         next.textContent = 'Rate us';
-         next.classList.remove('btn-next');
-         next.classList.add('btn-rate');
+      // next.addEventListener('click',function(){
+      next.textContent = 'Rate us';
+      next.classList.remove('btn-next');
+      next.classList.add('btn-rate');
 
-         checkAnswers();
-         viewResults();
-      })
+      checkAnswers();
+      viewResults();
+      // })
 
       // attivare appena colleghiamo pagina result
       // next.classList.remove('btn-next');
@@ -239,6 +238,7 @@ next.addEventListener('click',function(){
       // console.log('next contiene una classe btn-rate');
       viewFeedback();
    }
+   indice++;
 
 })
 
