@@ -7,59 +7,205 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Result page</title>
 
-   <link rel="stylesheet" href="assets/css/style.css">
+   <link rel="stylesheet" href="assets/css/reset.css">
+   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+
+   <style>
+      body {
+         background: url(assets/img/bg.jpg) no-repeat center center;
+         background-size: cover;
+         color: white;
+         font-family: 'Outfit', sans-serif;
+      }
+
+      .container {
+         margin-left: 150px;
+         margin-right: 150px;
+         margin-top: 50px;
+      }
+
+      .header {
+         margin-bottom: 35px;
+         width: 100%;
+      }
+
+      .logo {
+         width: 20%;
+         height: 20%;
+      }
+
+      .title-wrapper {
+         margin-bottom: 3rem;
+         text-align: center;
+      }
+
+      .title {
+         font-weight: bold;
+         font-size: 4rem;
+         margin-bottom: 1rem;
+      }
+
+      .subtitle {
+         font-size: 2em;
+      }
+
+      .results {
+         display: flex;
+         font-size: 30px;
+         justify-content: space-around;
+         align-items: center;
+         margin-bottom: 50px;
+      }
+
+      .results__left {
+         text-align: left;
+      }
+
+      .results__right {
+         text-align: right;
+         opacity: 0.8;
+      }
+
+      .results__left,
+      .results__right {
+         width: 20%;
+      }
+
+      .results__title,
+      .results__percent {
+         font-size: 3rem;
+      }
+
+      .results__percent {
+         font-weight: bold;
+      }
+
+      .results__questions {
+         font-size: 1rem;
+         font-weight: 300;
+      }
+
+      .results__left p,
+      .results__right p {
+         margin-bottom: 5px;
+      }
+
+      .results__center {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border: 40px solid #00ffff;
+         border-radius: 50%;
+         width: 200px;
+         height: 200px;
+         padding: 30px;
+      }
+
+      .results__text {
+         font-size: 1.2rem;
+         text-align: center;
+         line-height: 1;
+      }
+
+      .results__text b {
+         font-weight: 700;
+      }
+
+      .results__text .bold-color {
+         color: #00ffff;
+      }
+
+      .results__text p {
+         font-size: 13px;
+         font-weight: 300;
+         margin-top: 1.2rem;
+      }
+
+      .btn-rate {
+         text-decoration: none;
+         background-color: transparent;
+         color: #fff;
+         padding: 15px 60px;
+         font-size: 20px;
+         border: 2px solid #fff;
+         font-weight: 700;
+         display: block;
+         margin: 0 auto;
+      }
+   </style>
 </head>
 
 <body>
 
    <div class="container">
+
       <div class="header">
          <img src="assets/img/epicode_logo.png" class="logo">
-      </div>
-
-
+      </div> <!-- .header -->
 
       <div class="main">
-         <p class="title">Results</p>
 
-         <p class="sottotitolo">The summary of your aswers:</p>
+         <div class="title-wrapper">
+            <p class="title">Results</p>
 
-      </div>
+            <p class="subtitle">The summary of your aswers:</p>
+         </div> <!-- .title-wrapper -->
 
-      <div class="dati">
-         <div class="sinistra">
-            <p class="esito">Correct</p>
-            <input type="number" class="perc1">
-            <p class="questions">/7 questions</p>
-         </div>
-         
-         <div class="bordo">
-            <p class="frase1">Congratulations!<br><b>You passed the exam</b><br> we'll send you the certificate<br> in few minutes<br> check your email (including<br> promotions / spam folder)</p>
-            <p class="frase2">non hai superato l'esame</p>
-         </div>
+         <div class="results">
+            <div class="results__left">
+               <p class="results__title">Correct</p>
+               <p class="results__percent"></p>
+               <p class="results__questions"></p>
+            </div> <!-- .results__left -->
 
-         <div class="destra">
-            <p class="esito">Wrong</p>
-            <input type="number" class="perc2">
-            <p class="questions">/7 questions</p>
-         </div>
-      </div>
+            <div class="results__center">
+               <p class="results__text"></p> <!-- results__text -->
+            </div> <!-- .bordo -->
 
-      <div class="pulsante">
+            <div class="results__right">
+               <p class="results__title">Wrong</p>
+               <p class="results__percent"></p>
+               <p class="results__questions"></p>
+            </div> <!-- .results__right -->
+         </div> <!-- .results -->
 
-         <a href="#" class="rate">RATE US</a>
+         <button class="btn-rate">RATE US</button>
 
-      </div>
+      </div> <!-- .main -->
 
+   </div> <!-- .container -->
 
+   <script>
 
-   </div>
+      let answersCorrect = ".....";
+      let numberQuestions = 7;
 
+      function cerchiofrase() {
 
-   <script src="assets/js/scripts.js"></script>
+         let frasehtml = document.querySelector('.results__text');
+         let frase1 = `<b>Congratulations!</b><br><b class="bold-color">You passed the exam</b><p>We'll send you the certificate<br>in few minutes<br>check your email (including<br>promotions / spam folder)</p>`;
+         let frase2 = "non hai superato l'esame";
+         let percentuale = Math.floor((100 / numberQuestions) * answersCorrect.length);
+
+         document.querySelector('.results__left .results__percent').innerText = percentuale + "%";
+         document.querySelector('.results__right .results__percent').innerText = 100 - percentuale + "%";
+         document.querySelector('.results__left .results__questions').innerText = `${answersCorrect.length}/${numberQuestions} questions`;
+         document.querySelector('.results__right .results__questions').innerText = `${numberQuestions - answersCorrect.length}/${numberQuestions} questions`;
+
+         if (percentuale >= 60) {
+
+            frasehtml.innerHTML = frase1;
+         } else if (percentuale < 60) {
+
+            frasehtml.innerHTML = frase2;
+         }
+      }
+      cerchiofrase();
+
+   </script>
 </body>
 
 </html>
