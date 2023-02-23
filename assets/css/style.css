@@ -1,97 +1,116 @@
-/* ------- general CSS ------- */
-/* ---------------------------- */
-*{
-   box-sizing: border-box;
-}
+/**
+ * Welcome Page 
+ * ------------------------------------------------------
+ */
 body{
-   font-family: 'Inter', sans-serif;
-}
-.container {
-   background: url('../img/bg.jpg') no-repeat center center;
+   background: url(../img/bg.jpg) no-repeat center center;
    background-size: cover;
-   color: #fff;
-}
-.container-js{
-   max-width: 1200px;
-   margin: 0 auto;
+   color: white;
+   font-family: 'Inter', sans-serif;
    min-height: 100vh;
-   padding: 2rem 0;
 }
-
-/* ------- welcome page ------- */
-/* ---------------------------- */
-
-.logo {
-   width: 15%;
-   margin-bottom: 5rem;
+.container{
+   margin: 50px 150px;
 }
-.title{
-   font-family: 'Outfit', sans-serif;
-   font-size: 3.5rem;
-   text-align: left;
-   width: 35%;
-   font-weight: 400;
-   margin-bottom: 2rem;
+.header{
+   margin-bottom: 35px;
+   width: 100%;
 }
-.title span{
-   font-weight: 700;
+.logo{
+   width: 20%;
 }
+.main{
+   margin-bottom: 150px;
+}
+.title,
 .subtitle{
    font-family: 'Outfit', sans-serif;
-   font-size: 2rem;
-   text-align: left;
-   font-weight: 600;
-   color: #87167f;
-   margin-bottom: 0.8rem;
+   font-size: 3.5rem;
 }
-.textContent{
-   width: 60%;
-   line-height: 1.3;
+.main .title{
+   width: 35%;
    margin-bottom: 2rem;
 }
-.listsContent{
-   line-height: 1.8;
-   margin-left: 1.5rem;
-   margin-bottom: 5rem;
-}
-.footer{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-}
-
-/* Stilizzazione checkbox => https://www.venetoformazione.it/blog/come-stilizzare-checkbox-radio-button-css3/ */
-.container-checkbox input{
-   border: 1px solid #fff;
-   background-color: transparent;
-}
-.btn{
-   padding: 1rem 3rem;
-   text-transform: uppercase;
-   border-radius: 0;
-   border: none;
-   font-size: 1.1rem;
+.main .title b{
    font-weight: 700;
-   background-color: #00FFFF;
-   box-shadow: 2px 2px 29px 2px #00FFFF;
+}
+.main .subtitle{
+   font-size: 2em;
+   font-weight: 700;
+   color: #D20094;
+   margin-bottom: 1rem;
+}
+.main__text{
+   width: 60%;
+   line-height: 1.5;
+   margin-bottom: 3rem;
+}
+.main__list{
+   margin-left: 1.5rem;
+}
+.main__list li{
+   margin-bottom: 0.5rem;
 }
 .btn-start{
+   display: block;
+   background-color: #00ffff;
+   color: black;
+   border: none;
+   padding: 1rem 3rem;
+   box-shadow: 0px 0px 20px 5px #00FFFF;
+   font-size: 1.3rem;
+   font-weight: 700;
    opacity: 0.5;
+   margin-left: auto;
+   transition: all 0.4s ease-in;
 }
-.btn-start-true{
+.btn-start-accept{
    opacity: 1;
 }
 
+/* Checkbox */
+.checkbox-wrapper{
+   position: relative;
+}
+input[type="checkbox"]{
+   position: relative;
+   transition: .5s;
+   z-index: 10;
+   opacity: 0;
+   width: 1rem;
+   height: 1rem;
+}
+.my-checkbox{
+   display: inline-block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 1rem;
+   height: 1rem;
+   border: 2px solid white;
+   background-color: transparent;
+}
+input[type="checkbox"]:checked + .my-checkbox::after{
+   content: '\2714';
+   position: absolute;
+   top: 0;
+   left: 0;
+   font-size: 1rem;
+}
 
-/* ------- test page ------- */
-/* ---------------------------- */
-.title-test{
+
+/**
+ * Quiz Page 
+ * ------------------------------------------------------
+ */
+.slide .title{
    width: 65%;
+   font-weight: 400;
    text-align: center;
    margin: 0 auto;
    margin-bottom: 4rem;
 }
-.questions{
+.answers{
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -100,31 +119,14 @@ body{
    gap: 2rem;
    margin-bottom: 10rem;
 }
-/* .question{
+.answer{
    flex-basis: 40%;
    text-align: center;
 }
-.question input{
-   opacity: 1;
-}
-.question label{
-   display: inline-block;
-   padding: 1.2rem 6rem;
-   text-align: center;
-   margin: 0 auto;
-   border: 2px solid #fff;
-   background-color: rgba(255,255,255,0.1);
-   border-radius: 40px;
-   min-width: 260px;
-} */
-.question{
-   flex-basis: 40%;
-   text-align: center;
-}
-.question input{
+.answer input{
    display: none;
 }
-.question label{
+.answer label{
    display: inline-block;
    padding: 1.2rem 6rem;
    text-align: center;
@@ -135,31 +137,211 @@ body{
    border-radius: 40px;
    min-width: 260px;
 }
-.question input:checked + label {
+.answer input:checked + label {
    background: linear-gradient(180deg, rgba(210,0,148,1) 0%, rgba(144,0,128,1) 100%);
 }
-.footer-test{
+.question-counter{
    text-align: center;
    text-transform: uppercase;
    font-weight: 700;
    letter-spacing: 2px;
+   margin-bottom: 2rem;
 }
-.footer-test span{
+.question-counter span{
    color: #D20094;
 }
-
-/* CSS per slide javascript */
-[class^="slide"]{
-   display: none;
-}
-.d-block{
+.btn-start,
+.btn-next,
+.btn-result{
    display: block;
+   background-color: #00ffff;
+   border: none;
+   border-radius: 0;
+   color: black;
+   text-transform: uppercase;
+   padding: 1rem 3rem;
+   box-shadow: 2px 2px 29px 2px #00FFFF;
+   font-size: 1.1rem;
+   font-weight: 700;
+   margin-left: auto;
+}
+.btn-start{
+   opacity: 0.5;
+}
+.btn-start-accept{
+   opacity: 1;
 }
 .btn-next{
-   display: block;
-   margin-left: auto;
-   opacity: 0.8;
+   opacity: 0.7;
 }
 .btn-next:hover{
    opacity: 1;
+}
+
+
+/**
+ * Results Page 
+ * ------------------------------------------------------
+ */
+.main-results .title-wrapper{
+   margin-bottom: 3rem;
+   text-align: center;
+}
+.main-results .title{
+   font-size: 4rem;
+   font-weight: bold;
+   margin-bottom: 1rem;
+}
+.main-results .subtitle{
+   font-size: 2em;
+}
+.results{
+   display: flex;
+   font-size: 30px;
+   justify-content: space-around;
+   align-items: center;
+   margin-bottom: 50px;
+}
+.results__left{
+   text-align: left;
+}
+.results__right{
+   text-align: right;
+   opacity: 0.8;
+}
+.results__left, 
+.results__right{
+   width: 20%;
+}
+.results__title,
+.results__percent{
+   font-size: 3rem;
+}
+.results__percent{
+   font-weight: bold;
+}
+.results__questions{
+   font-size: 1rem;
+   font-weight: 300;
+}
+.results__left p,
+.results__right p{
+   margin-bottom: 5px;
+}
+.results__center{ 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: 40px solid #00ffff;
+   border-radius: 50%;
+   width: 200px;
+   height: 200px;
+   padding: 30px;
+}
+.results__text{
+   font-size: 1.2rem;
+   text-align: center;
+   line-height: 1;
+}
+.results__text b {
+   font-weight: 700;
+}
+.results__text .bold-color{
+   color: #00ffff;
+}
+.results__text p{
+   font-size: 13px;
+   font-weight: 300;
+   margin-top: 1.2rem;
+}
+.btn-rate{
+   display: block;
+   background-color: transparent;
+   color: #fff;
+   border: 2px solid #fff;
+   padding: 1rem 3rem;
+   font-size: 1.3rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   margin: 0 auto;
+   /* transition: all 0.4s ease-in; */
+}
+.btn-rate:hover{
+   background-color: #00ffff;
+   color: black;
+   border: 2px solid #00ffff;
+   box-shadow: 0px 0px 20px 5px #00FFFF;
+}
+
+
+/**
+ * Results Page 
+ * ------------------------------------------------------
+ */
+.main-feedback{
+   text-align: center;
+   margin-bottom: 50px;
+}
+.main-feedback .title{
+   font-size: 3rem;
+   font-weight: 700;
+   margin-bottom: 1rem;
+}
+.content{
+   font-size: 1.5rem;
+   line-height: 1.5;
+   margin-bottom: 2rem;
+}
+.stars{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 50px;
+}
+.star{
+   margin: 0 5px;
+   width: 50px;
+   fill: #1b1e3b;
+   transition: fill;
+}
+.star:hover{
+   fill: #00FFFF;
+}
+.note{
+   margin-top: 30px;
+   display: flex;
+   background: transparent;
+   outline: none;
+   border: none;
+   align-items: flex-start;
+   padding-left: 20px;
+   color: white;
+}
+hr {
+   border-color: #d20094;
+}
+.pulsante {
+   background-color: #00ffff;
+   display: inline-block;
+   padding-left: 30px;
+   padding-right: 30px;
+   padding-bottom: 20px;
+   padding-top: 20px;
+   text-decoration: none;
+   border: none;
+   box-shadow: 0px 0px 15px 5px #00FFFF;
+   font-weight: bold;
+   font-size: larger;
+}
+
+
+
+
+
+
+/* Helpers */
+.dnone{
+   display: none;
+}
+.dblock{
+   display: block;
 }

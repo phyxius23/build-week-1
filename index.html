@@ -5,14 +5,151 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Build week</title>
-
-   <!-- CSS -->
+   
+   <!-- CSS Reset -->
+   <link rel="stylesheet" href="assets/css/reset.css">
+   <!-- Google Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+   <!-- CSS Custom -->
    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque animi sunt voluptates repudiandae officiis minima earum, pariatur libero aspernatur hic aperiam dignissimos soluta voluptate numquam facere delectus facilis! Quos, numquam?</p>
    
+   <!-- codice html che verrà riproposto ad ogni pagina -->
+   <!-- *********************************************** -->
+   <div class="container">
+
+      <div class="header">
+         <img src="assets/img/epicode_logo.png" class="logo">
+      </div> <!-- .header -->
+
+      <div id="target">
+
+         <!-- codice html che verrà distrutto => quiz page -->
+         <div class="main">
+
+            <div class="title-wrapper">
+               <p class="title">Welcome to <b>your exam</b></p>
+
+               <p class="subtitle">Instructions</p>   
+            </div>
+
+            <p class="main__text">We don't expect most engineers to know the answers to all oh these questions, so don't worry if you're unsure of a few of them</p>
+
+            <ul class="main__list">
+               <li>Each questions is timed and can only be answered once</li>
+               <li>Changing browser tab or opening other windows will invalidate the question</li>
+               <li>The exam will take approx: 0-5 minutes</li>
+            </ul>
+         </div> <!-- .main -->
+
+         <div class="footer">
+
+            <div class="checkbox-wrapper">
+               <input type="checkbox" id="checkbox">
+               <span class="my-checkbox"></span>
+               <label for="checkbox">I promise to answer myself without help from anyone</label>
+            </div> <!-- .checkbox-wrapper -->
+
+         </div> <!-- .footer -->
+         
+      </div> <!-- .target -->
+
+      <button class="btn-start">Proceed</button>
+      <button class="btn-next dnone">Next question</button>      
+   </div> <!-- .container -->
+
+
+   <!-- ************* template quiz page ************** -->
+   <!-- *********************************************** -->
+   <div id="template" class="dnone">
+
+      <div class="slide">
+         <p class="title"></p>
+         
+         <div class="answers">
+            <div class="answer">
+               <input type="radio" name="answer" class="input">
+               <label class="option"></label>
+            </div>
+         </div> <!-- .answers -->
+         
+         <p class="question-counter"></p>
+
+      </div> <!-- .slide -->
+
+   </div> <!-- #template .dnone -->
+
+
+   <!-- *********** template results page ************* -->
+   <!-- *********************************************** -->
+   <div id="template-results" class="dnone">
+
+      <div class="main-results">
+
+         <div class="title-wrapper">
+            <p class="title">Results</p>
+            
+            <p class="subtitle">The summary of your aswers:</p>
+         </div> <!-- .title-wrapper -->
+
+         <div class="results">
+            <div class="results__left">
+               <p class="results__title">Correct</p>
+               <p class="results__percent"></p>
+               <p class="results__questions"></p>
+            </div> <!-- .results__left -->
+            
+            <div class="results__center">
+               <p class="results__text"></p> <!-- results__text -->
+            </div> <!-- .bordo -->
+
+            <div class="results__right">
+               <p class="results__title">Wrong</p>
+               <p class="results__percent"></p>
+               <p class="results__questions"></p>
+            </div> <!-- .results__right -->
+         </div> <!-- .results -->
+
+      </div> <!-- .main -->
+
+   </div> <!-- #template .dnone -->
+   
+
+   <!-- *********** template feedback page ************ -->
+   <!-- *********************************************** -->
+   <div id="template-feedback" class="dnone">
+
+      <div class="main-feedback">
+
+         <p class="title">Tell us how it's going</p>
+
+         <p class="content">From 0 to 10, how likely are you to recommend EPICODE <br>to a friend ar a colleague?</p>
+
+         <div class="stars">
+
+            <!-- posso utilizzare una funzione che mi ripete le stelle 10 volte -->
+            <svg class="star" viewBox="0 0 47 46" xmlns="http://www.w3.org/2000/svg">
+               <path
+                  d="M22.2044 1.55551C22.6143 0.569963 24.0104 0.569964 24.4203 1.55552L29.9874 14.9402C30.1602 15.3557 30.5509 15.6396 30.9994 15.6756L45.4494 16.834C46.5134 16.9193 46.9448 18.2471 46.1341 18.9415L35.1248 28.3722C34.7831 28.6649 34.6338 29.1242 34.7382 29.5619L38.1018 43.6626C38.3494 44.7009 37.2199 45.5215 36.309 44.9651L23.9379 37.4089C23.5538 37.1743 23.0709 37.1743 22.6868 37.4089L10.3157 44.9651C9.40478 45.5215 8.27528 44.7009 8.52295 43.6626L11.8865 29.5619C11.9909 29.1242 11.8416 28.6649 11.4999 28.3722L0.490575 18.9415C-0.320069 18.2471 0.111362 16.9193 1.17535 16.834L15.6253 15.6756C16.0738 15.6396 16.4645 15.3557 16.6374 14.9402L22.2044 1.55551Z"
+                     > <!--fill-->
+            </svg>
+
+         </div> <!-- .stars -->
+
+         <p class="content">Leave us an open feedback about your experience so far</p>
+
+         <input type="text" class="note" placeholder="Write your comment here">
+         <hr>
+
+         <!-- <button class="btn-info">MORE INFO</button> -->
+      </div> <!-- .main-feedback -->
+
+   </div> <!-- #template-feedback .dnone -->
+
    <!-- Scripts -->
-   <script src="assets/js/scripts.js"></script>
+   <script src="assets/js/scripts-funzionante.js"></script>
 </body>
 </html>
