@@ -38,10 +38,10 @@ body {
 }
 .star{
     margin: 4px;
-    /*
-    stroke: var(--black);
-    fill: var(--green);
-    */
+    transition: fill;
+}
+.star:hover{
+    fill: #00FFFF;
 }
 .comment {
     margin-top: 30px;
