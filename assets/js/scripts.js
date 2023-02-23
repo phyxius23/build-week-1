@@ -211,34 +211,35 @@ let next = document.querySelector('.btn-next');
 
 next.addEventListener('click',function(){
 
-   if(indice < requests.length && indice != requests.length){
+   if(indice < requests.length){
       newQuestion(requests[indice]);
    }
+   
+   //indice inferiore a 7 and indice diverso da 7
+   // if(indice < requests.length && indice != requests.length){
+   //    newQuestion(requests[indice]);
+   // }
+
+   indice++;
+   console.log(indice);
+
    if(indice == requests.length){
       next.innerText = 'Passa ai risultati';
-
-      // next.addEventListener('click',function(){
+   }
+         
+   if(indice > requests.length){
       next.textContent = 'Rate us';
       next.classList.remove('btn-next');
       next.classList.add('btn-rate');
-
       checkAnswers();
       viewResults();
-      // })
-
-      // attivare appena colleghiamo pagina result
-      // next.classList.remove('btn-next');
-      // next.classList.add('btn-result');
-      // btnResult = document.querySelector('.btn-result');
-      // console.log(btnResult);
-      //return //valutare se il ramo false è necessario
    }
 
-   if(next.classList.contains("btn-rate")){
-      // console.log('next contiene una classe btn-rate');
-      viewFeedback();
-   }
-   indice++;
+   // devo avviare la funzione che visualizza la pagina di feedback, come posso fare?
+   // if(next.classList.contains("btn-rate")){
+   //    console.log('next contiene una classe btn-rate');
+   //    viewFeedback();
+   // }
 
 })
 
