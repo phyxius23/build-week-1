@@ -259,32 +259,6 @@ input[type="checkbox"]:checked + .my-checkbox::after{
    font-weight: 300;
    margin-top: 1.2rem;
 }
-/* .results__center{ 
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   border: 40px solid #00ffff;
-   border-radius: 50%;
-   width: 200px;
-   height: 200px;
-   padding: 30px;
-}
-.results__text{
-   font-size: 1.2rem;
-   text-align: center;
-   line-height: 1;
-}
-.results__text b {
-   font-weight: 700;
-}
-.results__text .bold-color{
-   color: #00ffff;
-}
-.results__text p{
-   font-size: 13px;
-   font-weight: 300;
-   margin-top: 1.2rem;
-} */
 .btn-rate{
    display: block;
    background-color: transparent;
