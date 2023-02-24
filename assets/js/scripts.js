@@ -1,5 +1,5 @@
 /**
- * MATERIALE FORNITO DALLA SCUOLA
+ * MATERIALE FORNITO
  * ------------------------------------------------------------------------
  */
 const questions = [
@@ -103,9 +103,9 @@ const questions = [
 ];
 
 // variabili dove salvo le risposte corrette e la quantita di domande
-let answerCorrect = [];
-let userAnswer = [];
-let userAnswersCorrect = "";
+let answerCorrect = [];                //salvo le risposte corrette di ciascun oggetto (lo utilizzo per il confronto)
+let userAnswer = [];                   //salvo le risposte dell'utente (lo utilizzo per il confronto)
+let userAnswersCorrect = "";           //salvo la quantità di riposte corrette (lo utilizzo per il confronto)
 let numberQuestions = 7;
 
 // array con all'interno delle domande random
@@ -113,7 +113,7 @@ let requests = randomQuestions(numberQuestions);
 
 
 /**
- * se input:checked aggiungo classe btn-start-accept che mi rende btn-start con opacity 1
+ * se input:checked aggiungo classe btn-start-accept che mi rende btn-start con opacity 1 e soprattutto mi permette poi di avviare la funzione
  * ------------------------------------------------------------------------
  */
 let checkbox = document.querySelector('#checkbox');
