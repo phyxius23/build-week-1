@@ -13,8 +13,9 @@ body{
    margin: 50px 120px;
 }
 .header{
-   margin-bottom: 35px;
+   margin-bottom: 5rem;
    width: 100%;
+   position: relative;
 }
 .logo{
    width: 20%;
@@ -177,6 +178,42 @@ input[type="checkbox"]:checked + .my-checkbox::after{
 .btn-next:hover{
    opacity: 1;
 }
+/* Timer */
+.countdown{
+   position: absolute;
+   top: 50px;
+   right: 120px;
+   width: 150px;
+   height: 150px;
+}
+.countdown > div{
+   position: relative;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+.countdown > div > .pos-absolute{
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+.countdown .timer .timer-up,
+.countdown .timer .timer-down{
+   font-size: 0.8rem;
+   text-transform: uppercase;
+}
+.countdown .timer .timer-up{
+   font-weight: 700;
+}
+.countdown .timer .timer-center{
+   font-size: 3rem;
+   margin: 5px 0;
+}
+
+
+
 
 
 /**

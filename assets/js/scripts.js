@@ -265,10 +265,14 @@ function newQuestion(answerObj){
    let questionCounter = html.querySelector('.question-counter');
    
    titleDOM.textContent = answerObj.question; //inserisco la domanda all'interno del titolo
+
+   viewCountdown(html);
    
    //ciclo l'array contenente le risposte e mi creo la struttura html
    for(let risp of randomAnswersObj){
+
       idCounter++;
+
       let answerClone = html.querySelector('.answer').cloneNode();
       let inputClone = html.querySelector('.answer .input').cloneNode();
       let optionClone = html.querySelector('.answer .option').cloneNode();
@@ -307,6 +311,8 @@ function checkAnswers(){
    if(userAnswer != ''){
       
       for(let i = 0; i < userAnswer.length; i++){
+
+         console.log(answerCorrect, userAnswer)
 
          if(answerCorrect[i].includes(userAnswer[i])){ //se answerCorrect = userAnswer
          
@@ -477,4 +483,41 @@ function doughnut(html){
    };
 
    new Chart(ctx, config);
+}
+
+
+// Fn timer
+function viewCountdown(html){
+
+   let count = 30;
+   let countdownEl = html.querySelector('.countdown .timer');
+   let textUp = document.createElement('p');
+   let textCenter = document.createElement('p');
+   let textDown = document.createElement('p');
+
+
+   let timer = setInterval(function(){
+
+      let seconds = count % 60;
+
+
+      textUp.classList.add('timer-up');
+      textCenter.classList.add('timer-center');
+      textDown.classList.add('timer-down');
+
+      textUp.textContent = 'Seconds';
+      textCenter.textContent = seconds;
+      textDown.textContent = 'remaining';
+
+      countdownEl.append(textUp);
+      countdownEl.append(textCenter);
+      countdownEl.append(textDown);
+
+      if(count == 0){
+         clearInterval(timer)//fermo il timer
+      }
+      count--;//riduco count di 1
+
+   },1000)
+
 }
