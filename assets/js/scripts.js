@@ -213,6 +213,7 @@ next.addEventListener('click',function(){
 
    if(indice < requests.length){
       newQuestion(requests[indice]);
+      indice++;
    }
    
    //indice inferiore a 7 and indice diverso da 7
@@ -220,20 +221,61 @@ next.addEventListener('click',function(){
    //    newQuestion(requests[indice]);
    // }
 
-   indice++;
-   console.log(indice);
+   console.log(next.classList.contains("btn-start-rate"));
 
-   if(indice == requests.length){
+   // if(indice == requests.length && !next.classList.contains("btn-start-rate")){
+   //    next.innerText = 'Passa ai risultati';
+   //    next.classList.add('btn-start-rate');
+   // }else if(indice == requests.length && next.classList.contains("btn-start-rate")){
+   //    next.textContent = 'Rate us';
+   //    next.classList.remove('btn-next');
+   //    next.classList.add('btn-rate');
+   //    checkAnswers();
+   //    viewResults();
+   // }else if(indice == requests.length && next.classList.contains("btn-start-feed")){
+   //    viewFeedback();
+   // }
+
+   if(indice == requests.length && next.classList.contains("btn-start-next")){
       next.innerText = 'Passa ai risultati';
-   }
-         
-   if(indice > requests.length){
+      next.classList.remove('btn-start-next');
+      next.classList.add('btn-start-rate');
+   }else if(indice == requests.length && next.classList.contains("btn-start-rate")){
       next.textContent = 'Rate us';
-      next.classList.remove('btn-next');
-      next.classList.add('btn-rate');
+      next.classList.add('btn-rate btn-start-feed');
+      next.classList.remove('btn-start-rate');
       checkAnswers();
       viewResults();
+   }else if(indice == requests.length && next.classList.contains("btn-start-feed")){
+      viewFeedback();
    }
+
+
+   // if(indice == requests.length){
+   //    next.innerText = 'Passa ai risultati';
+   //    next.classList.add('btn-start-rate');
+   //    return;
+   // }
+   // if(next.classList.contains("btn-start-rate")){
+   //       checkAnswers();
+   //       viewResults(); 
+   // }
+
+
+   // if(next.classList.contains("btn-start-rate")){
+   //    console.log('next contiene una classe btn-rate');
+   //    checkAnswers();
+   //    viewResults();
+   // }
+
+         
+   // if(indice > requests.length){
+   //    next.textContent = 'Rate us';
+   //    next.classList.remove('btn-next');
+   //    next.classList.add('btn-rate');
+   //    checkAnswers();
+   //    viewResults();
+   // }
 
    // devo avviare la funzione che visualizza la pagina di feedback, come posso fare?
    // if(next.classList.contains("btn-rate")){
@@ -346,6 +388,9 @@ function viewResults(){
    let html = document.querySelector('#template-results .main-results').cloneNode(true);
 
    let percentuale = Math.floor((100/numberQuestions) * userAnswersCorrect.length);
+
+   // next.classList.remove('btn-start-rate');
+   // next.classList.add('btn-start-feed');
 
    target.innerHTML = "";
 
