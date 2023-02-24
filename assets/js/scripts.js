@@ -489,7 +489,7 @@ function doughnut(html){
 // Fn timer
 function viewCountdown(html){
 
-   let count = 30;
+   let count = 3;
    let countdownEl = html.querySelector('.countdown .timer');
    let textUp = document.createElement('p');
    let textCenter = document.createElement('p');
@@ -515,6 +515,10 @@ function viewCountdown(html){
 
       if(count == 0){
          clearInterval(timer)//fermo il timer
+
+         newQuestion(requests[indice]); //eseguo Fn newQuestion() => mostra domanda/risposte
+
+         indice++; //incremento indice   
       }
       count--;//riduco count di 1
 
