@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background: url(../assets/img/bg.jpg) no-repeat center center;
+            background-size: cover;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+
+        .cerchio-timer {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: auto;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            border: 20px solid #00ffff;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cerchio-timer">
+        <p id="countdown"></p>
+    </div>
+
+    <script>
+
+        let count = 30;
+        const countdownEl = document.getElementById('countdown');
+        let timer = setInterval(function () {
+            let seconds = count % 60;
+            countdownEl.innerHTML = `${seconds}`;
+            if (count == 0) {
+                clearInterval(timer)//fermo il timer
+            }
+            count--;//riduco count di 1
+        }, 1000)
+
+    </script>
+
+</body>
+
+</html>
