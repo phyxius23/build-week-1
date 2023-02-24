@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+
+   <!-- Punto di ancoraggio per ChartJS -->
+   <div>
+      <canvas id="myChart"></canvas>
+   </div>
+
+   <!-- ChartJS -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+   <!-- Script Custom -->
+   <script>
+      const ctx = document.getElementById('myChart');
+    
+      // new Chart(ctx, {
+      //    type: 'bar',
+      //    data: {
+      //       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      //       datasets: [{
+      //       label: '# of Votes',
+      //       data: [12, 19, 3, 5, 2, 3],
+      //       borderWidth: 1
+      //       }]
+      //    },
+      //    options: {
+      //       scales: {
+      //       y: {
+      //          beginAtZero: true
+      //       }
+      //       }
+      //    }
+      // });
+
+
+
+      const data = {
+         labels: [
+            'Wrong',
+            'Correct',
+         ],
+         datasets: [{
+            label: 'My First Dataset',
+            data: [2, 5],         //qui posso inserire il numero di risposte corrette e di sbaliate
+            backgroundColor: [
+               '#D20094', //rgb(54, 162, 235)',       //colore wrong
+               '#00ffff', //rgb(255, 99, 132)',       //colore correct
+            ],
+            hoverOffset: 4,
+            borderWidth: 0
+         }]
+      };
+
+      const config = {
+         type: 'doughnut',
+         data: data,
+      };
+
+
+      new Chart(ctx, config);
+
+   </script>
+
+</body>
+</html>

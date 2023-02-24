@@ -228,7 +228,12 @@ input[type="checkbox"]:checked + .my-checkbox::after{
 .results__right p{
    margin-bottom: 5px;
 }
-.results__center{ 
+.results__center{
+   width: 200px;
+   height: 200px;
+
+}
+/* .results__center{ 
    display: flex;
    align-items: center;
    justify-content: center;
@@ -253,7 +258,7 @@ input[type="checkbox"]:checked + .my-checkbox::after{
    font-size: 13px;
    font-weight: 300;
    margin-top: 1.2rem;
-}
+} */
 .btn-rate{
    display: block;
    background-color: transparent;

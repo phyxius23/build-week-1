@@ -372,11 +372,13 @@ function viewResults(){
    resultsPercent.textContent = `${100 - percentuale}%`;
    resultsQuestions.textContent = `${numberQuestions - userAnswersCorrect.length}/${numberQuestions} questions`;
 
-   if (percentuale >= 60) {
-      resultsText.innerHTML = `<b>Congratulations!</b><br><b class="bold-color">You passed the exam</b><p>We'll send you the certificate<br>in few minutes<br>check your email (including<br>promotions / spam folder)</p>`;
-   }else if (percentuale < 60) {
-      resultsText.innerHTML = "Non hai superato l'esame";
-   }
+   doughnut(html);
+
+   // if (percentuale >= 60) {
+   //    resultsText.innerHTML = `<b>Congratulations!</b><br><b class="bold-color">You passed the exam</b><p>We'll send you the certificate<br>in few minutes<br>check your email (including<br>promotions / spam folder)</p>`;
+   // }else if (percentuale < 60) {
+   //    resultsText.innerHTML = "Non hai superato l'esame";
+   // }
 
    target.append(html);
 }
@@ -438,4 +440,34 @@ function colorStars(html){
          }
       })
    }
+}
+
+
+/**
+ * Fn per disegnare il grafico a ciambella
+ * ------------------------------------------------------------------------
+ */
+function doughnut(html){
+
+   const ctx = html.querySelector('.results__center #myChart');
+
+   const data = {
+      datasets: [{
+         label: 'My First Dataset',
+         data: [numberQuestions-userAnswersCorrect.length, userAnswersCorrect.length],         //qui posso inserire il numero di risposte corrette e di sbaliate
+         backgroundColor: [
+            '#D20094', //rgb(54, 162, 235)',       //colore wrong
+            '#00ffff', //rgb(255, 99, 132)',       //colore correct
+         ],
+         hoverOffset: 4,
+         borderWidth: 0
+      }]
+   };
+
+   const config = {
+      type: 'doughnut',
+      data: data,
+   };
+
+   new Chart(ctx, config);
 }
