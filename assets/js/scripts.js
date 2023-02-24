@@ -489,7 +489,7 @@ function doughnut(html){
 // Fn timer
 function viewCountdown(html){
 
-   let count = 3;
+   let count = 15;
    let countdownEl = html.querySelector('.countdown .timer');
    let textUp = document.createElement('p');
    let textCenter = document.createElement('p');
