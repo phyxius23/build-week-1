@@ -205,84 +205,42 @@ start.addEventListener('click',()=>{
  * passo alla domanda successiva al click su button next
  * ------------------------------------------------------------------------
  */
-let next = document.querySelector('.btn-next');
-// let btnResult; //punto a .btn-result => controllare se si può eliminare
-
+let next = document.querySelector('.btn-next'); //seleziono il button.next
 
 next.addEventListener('click',function(){
 
+   //se indice inferiore al totale degli elementi di requests
    if(indice < requests.length){
-      newQuestion(requests[indice]);
-      indice++;
+
+      newQuestion(requests[indice]); //eseguo Fn newQuestion() => mostra domanda/risposte
+
+      indice++; //incremento indice
    }
    
-   //indice inferiore a 7 and indice diverso da 7
-   // if(indice < requests.length && indice != requests.length){
-   //    newQuestion(requests[indice]);
-   // }
-
-   console.log(next.classList.contains("btn-start-rate"));
-
-   // if(indice == requests.length && !next.classList.contains("btn-start-rate")){
-   //    next.innerText = 'Passa ai risultati';
-   //    next.classList.add('btn-start-rate');
-   // }else if(indice == requests.length && next.classList.contains("btn-start-rate")){
-   //    next.textContent = 'Rate us';
-   //    next.classList.remove('btn-next');
-   //    next.classList.add('btn-rate');
-   //    checkAnswers();
-   //    viewResults();
-   // }else if(indice == requests.length && next.classList.contains("btn-start-feed")){
-   //    viewFeedback();
-   // }
-
+   //se indice uguale al totale degli elementi di requests e l'elemento next contiene la classe btn-start-next
    if(indice == requests.length && next.classList.contains("btn-start-next")){
-      next.innerText = 'Passa ai risultati';
-      next.classList.remove('btn-start-next');
-      next.classList.add('btn-start-rate');
+
+      next.innerText = 'Passa ai risultati';    //cambio testo del button
+      next.classList.remove('btn-start-next');  //elimino classe btn-start-next
+      next.classList.add('btn-start-rate');     //aggiungo classe btn-start-rate
+
+   //se indice uguale al totale degli elementi di requests e l'elemento next contiene la classe btn-start-rate
    }else if(indice == requests.length && next.classList.contains("btn-start-rate")){
-      next.textContent = 'Rate us';
-      next.classList.add('btn-rate btn-start-feed');
-      next.classList.remove('btn-start-rate');
-      checkAnswers();
-      viewResults();
+
+      next.textContent = 'Rate us';             //cambio testo del button
+      next.classList.remove('btn-start-rate');  //elimino classe btn-start-rate
+      next.classList.add('btn-start-feed');     //aggiungo classe btn-start-feed
+
+      checkAnswers();                           //eseguo Fn che calcola le risposte corrette
+      viewResults();                            //eseguo Fn che mostra la pagina dei risultati
+
+   //se indice uguale al totale degli elementi di requests e l'elemento next contiene la classe btn-start-feed
    }else if(indice == requests.length && next.classList.contains("btn-start-feed")){
-      viewFeedback();
+
+      next.textContent = 'More info';           //cambio testo del button
+      
+      viewFeedback();                           //eseguo Fn che mostra la pagina di feedback
    }
-
-
-   // if(indice == requests.length){
-   //    next.innerText = 'Passa ai risultati';
-   //    next.classList.add('btn-start-rate');
-   //    return;
-   // }
-   // if(next.classList.contains("btn-start-rate")){
-   //       checkAnswers();
-   //       viewResults(); 
-   // }
-
-
-   // if(next.classList.contains("btn-start-rate")){
-   //    console.log('next contiene una classe btn-rate');
-   //    checkAnswers();
-   //    viewResults();
-   // }
-
-         
-   // if(indice > requests.length){
-   //    next.textContent = 'Rate us';
-   //    next.classList.remove('btn-next');
-   //    next.classList.add('btn-rate');
-   //    checkAnswers();
-   //    viewResults();
-   // }
-
-   // devo avviare la funzione che visualizza la pagina di feedback, come posso fare?
-   // if(next.classList.contains("btn-rate")){
-   //    console.log('next contiene una classe btn-rate');
-   //    viewFeedback();
-   // }
-
 })
 
 
@@ -389,8 +347,8 @@ function viewResults(){
 
    let percentuale = Math.floor((100/numberQuestions) * userAnswersCorrect.length);
 
-   // next.classList.remove('btn-start-rate');
-   // next.classList.add('btn-start-feed');
+   next.classList.remove('btn-next'); //rimuovo classe per stilizzare il button
+   next.classList.add('btn-rate'); //aggiungo classe per stilizzare il button
 
    target.innerHTML = "";
 
@@ -432,6 +390,9 @@ function viewFeedback(){
    
    let target = document.querySelector('#target');
    let html = document.querySelector('#template-feedback .main-feedback').cloneNode(true);
+
+   next.classList.remove('btn-rate'); //rimuovo classe per stilizzare il button
+   next.classList.add('btn-feed'); //aggiungo classe per stilizzare il button
 
    target.innerHTML = "";
 
